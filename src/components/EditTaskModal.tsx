@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { Modal, Form, Input, DatePicker, Select, Button } from 'antd';
 import { Task } from '../types/types.ts';
-import moment,{ Moment } from 'moment'; // Import Moment type
 import dayjs from 'dayjs';
 
 const { Option } = Select;
@@ -19,13 +18,13 @@ const EditTaskModal: React.FC<EditTaskModalProps> = ({ task, onSave, onClose }) 
     form.setFieldsValue({
       title: task.title,
       description: task.description,
-      dueDate: moment(task.dueDate), // Convert Date to Moment for the DatePicker
+      dueDate: dayjs(task.dueDate), // Convert Date to Moment for the DatePicker
       priority: task.priority,
       status: task.status,
     });
   }, [task, form]);
 
-  const onFinish = (values: { title: string; description: string; dueDate: Moment; priority: string; status: string }) => {
+  const onFinish = (values: { title: string; description: string; dueDate: dayjs.Dayjs; priority: string; status: string }) => {
     onSave({
       ...task,
       title: values.title,

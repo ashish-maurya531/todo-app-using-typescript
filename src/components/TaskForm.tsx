@@ -3,7 +3,6 @@ import { Button, Col, DatePicker, Form, Input, Row, Select } from 'antd';
 import { Task } from '../types/types.ts';
 import { useTasks } from '../context/TaskContext';
 import { v4 as uuidv4 } from 'uuid';
-import { Moment } from 'moment';
 import dayjs from 'dayjs';
 
 const { Option } = Select;
@@ -12,7 +11,7 @@ const TaskForm: React.FC = () => {
   const [form] = Form.useForm();
   const { addTask } = useTasks();
 
-  const onFinish = (values: { title: string; description: string; dueDate: Moment; priority: string }) => {
+  const onFinish = (values: { title: string; description: string; dueDate: dayjs.Dayjs; priority: string }) => {
     const newTask: Task = {
       id: uuidv4(),
       title: values.title,
