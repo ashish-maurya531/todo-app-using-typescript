@@ -11,6 +11,7 @@ const DeleteConfirmationModal: React.FC<DeleteConfirmationModalProps> = ({ onCon
   return (
     <Modal
       title="Confirm Deletion"
+      open={true}
       centered
       onCancel={onClose}
       footer={[
