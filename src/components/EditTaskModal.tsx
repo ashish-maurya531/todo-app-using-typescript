@@ -40,7 +40,7 @@ const EditTaskModal: React.FC<EditTaskModalProps> = ({ task, onSave, onClose }) 
   };
 
   return (
-    <Modal title="Edit Task" visible={true} onCancel={onClose} footer={null}>
+    <Modal title="Edit Task" onCancel={onClose} footer={null}>
       <Form form={form} layout="vertical" onFinish={onFinish}>
         <Form.Item name="title" label="Task Name" rules={[{ required: true }]}>
           <Input />
